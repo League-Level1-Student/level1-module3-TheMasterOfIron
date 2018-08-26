@@ -63,11 +63,12 @@ quizPanel.add(firstButton);
 
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-
+secondButton = createButton("400");
 		// 10. Add the secondButton to the quizPanel
-
+quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
-
+firstButton.addActionListener(this);
+secondButton.addActionListener(this);
 		// 12. Fill in the actionPerformed() method below
 
 		frame.pack();
@@ -101,13 +102,14 @@ buttonCount++;
 
 	public void actionPerformed(ActionEvent arg0) {
 		// Remove this temporary message:
-		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) arg0.getSource()).getText() + " button");
-
+		
 		// Use the method that plays the jeopardy theme music.
-
+		playJeopardyTheme();
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
-
+if (buttonPressed==(firstButton)) {
+	askQuestion("What is a Cockapoo a mix of?","Cocker Spaniel and Poodle.",200);
+}
 		// Call the askQuestion() method
 
 		// Fill in the askQuestion() method. When you play the game, the score should
@@ -123,11 +125,20 @@ buttonCount++;
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		// Remove this temporary message
-		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
+		
 		// Use a pop up to ask the user the question
-
+String answer = JOptionPane.showInputDialog(question);
 		// If the answer is correct
-
+if (answer==correctAnswer) {
+	score+=prizeMoney;
+	updateScore();
+	JOptionPane.showMessageDialog(null, "Correct!");
+}
+else {
+	score-=prizeMoney;
+	JOptionPane.showMessageDialog(null, "The correct answer was " + correctAnswer);
+	updateScore();
+}
 		// Increase the score by the prizeMoney
 
 		// Call the updateScore() method
