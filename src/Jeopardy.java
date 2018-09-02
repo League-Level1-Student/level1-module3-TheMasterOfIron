@@ -140,9 +140,9 @@ else {
 	updateScore();
 }
 		// Increase the score by the prizeMoney
-
+score+=prizeMoney;
 		// Call the updateScore() method
-
+updateScore();
 		// Pop up a message to tell the user they were correct
 
 		// Otherwise
