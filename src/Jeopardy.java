@@ -45,7 +45,7 @@ public class Jeopardy implements ActionListener {
 		frame.setLayout(new BorderLayout());
 
 		// 1. Make the frame show up
-frame.show();
+frame.setVisible(true);
 		// 2. Give your frame a title
 frame.setTitle("Jeapordy");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
@@ -69,6 +69,8 @@ quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
 firstButton.addActionListener(this);
 secondButton.addActionListener(this);
+thirdButton.addActionListener(this);
+fourthButton.addActionListener(this);
 		// 12. Fill in the actionPerformed() method below
 
 		frame.pack();
@@ -77,27 +79,27 @@ secondButton.addActionListener(this);
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height,
 				Toolkit.getDefaultToolkit().getScreenSize().width);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
+	
 
 	/*
-	 * 13. Use the method provided to play the Jeopardy theme music
-	 * 
-	 * 14. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-	 *
-	 * [optional] Use the showImage or playSound methods when the user answers a
+	 * 13. Use the method provided to play the Jeopardy theme music*/
+	playJeopardyTheme();
+	/* 14. Add buttons so that you have $200, $400, $600, $800 and $1000 questions*/
+	 f
+	/* [optional] Use the showImage or playSound methods when the user answers a
 	 * question
 	 */
-
+}
 	private JButton createButton(String dollarAmount) {
 		// Create a new JButton
 JButton button = new JButton();
 		// Set the text of the button to the dollarAmount
-button.setText("$300");
+button.setText(dollarAmount);
 		// Increment the buttonCount (this should make the layout vertical)
 buttonCount++;
 		// Return your new button instead of the temporary button
 
-		return new JButton("$300");
+		return button;
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
@@ -108,7 +110,7 @@ buttonCount++;
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
 if (buttonPressed==(firstButton)) {
-	askQuestion("What is a Cockapoo a mix of?","Cocker Spaniel and Poodle.",200);
+	askQuestion("What is a Cockapoo a mix of? (Capitals do matter)","Cocker Spaniel and Poodle.", 200);
 }
 		// Call the askQuestion() method
 
@@ -116,11 +118,19 @@ if (buttonPressed==(firstButton)) {
 		// change.
 
 		// Or if the buttonPressed was the secondButton
-
+else if (buttonPressed==(secondButton)) {
+	askQuestion("What type of dog is Doge? (Capitals do matter)","Shiba Inu", 400);
+}
+else if (buttonPressed==(thirdButton)) {
+	askQuestion("What type of dog is Gabe the Dog? (Capitals do matter)","Miniature American Eskimo dog", 600);
+}
+else if (buttonPressed==(fourthButton)) {
+	askQuestion("What is my dogs name? (Capitals do matter)","Rex", 1000);
+}
 		// Call the askQuestion() method with a harder question
 
 		// Clear the button text (set the button text to nothing)
-
+buttonPressed.setText("");
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
@@ -140,9 +150,9 @@ else {
 	updateScore();
 }
 		// Increase the score by the prizeMoney
-score+=prizeMoney;
+
 		// Call the updateScore() method
-updateScore();
+
 		// Pop up a message to tell the user they were correct
 
 		// Otherwise
