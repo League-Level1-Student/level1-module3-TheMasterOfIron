@@ -66,6 +66,12 @@ quizPanel.add(firstButton);
 secondButton = createButton("400");
 		// 10. Add the secondButton to the quizPanel
 quizPanel.add(secondButton);
+
+thirdButton = createButton("600");
+quizPanel.add(thirdButton);
+
+fourthButton = createButton("1000");
+quizPanel.add(fourthButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
 firstButton.addActionListener(this);
 secondButton.addActionListener(this);
@@ -85,7 +91,7 @@ fourthButton.addActionListener(this);
 	 * 13. Use the method provided to play the Jeopardy theme music*/
 	playJeopardyTheme();
 	/* 14. Add buttons so that you have $200, $400, $600, $800 and $1000 questions*/
-	 f
+	 
 	/* [optional] Use the showImage or playSound methods when the user answers a
 	 * question
 	 */
@@ -110,7 +116,7 @@ buttonCount++;
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
 if (buttonPressed==(firstButton)) {
-	askQuestion("What is a Cockapoo a mix of? (Capitals do matter)","Cocker Spaniel and Poodle.", 200);
+	askQuestion("What is a Cockapoo a mix of?","Cocker Spaniel and Poodle", 200);
 }
 		// Call the askQuestion() method
 
@@ -119,13 +125,13 @@ if (buttonPressed==(firstButton)) {
 
 		// Or if the buttonPressed was the secondButton
 else if (buttonPressed==(secondButton)) {
-	askQuestion("What type of dog is Doge? (Capitals do matter)","Shiba Inu", 400);
+	askQuestion("What type of dog is Doge?","Shiba Inu", 400);
 }
 else if (buttonPressed==(thirdButton)) {
-	askQuestion("What type of dog is Gabe the Dog? (Capitals do matter)","Miniature American Eskimo dog", 600);
+	askQuestion("What type of dog is Gabe the Dog?","Miniature American Eskimo", 600);
 }
 else if (buttonPressed==(fourthButton)) {
-	askQuestion("What is my dogs name? (Capitals do matter)","Rex", 1000);
+	askQuestion("What are the names of my dogs?","Rex and Simon", 1000);
 }
 		// Call the askQuestion() method with a harder question
 
@@ -139,7 +145,7 @@ buttonPressed.setText("");
 		// Use a pop up to ask the user the question
 String answer = JOptionPane.showInputDialog(question);
 		// If the answer is correct
-if (answer==correctAnswer) {
+if (answer .equalsIgnoreCase(correctAnswer)) {
 	score+=prizeMoney;
 	updateScore();
 	JOptionPane.showMessageDialog(null, "Correct!");
