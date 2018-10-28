@@ -22,6 +22,8 @@ public class SimonSays extends KeyAdapter {
 
 	// Complete steps 1 - 7 before you test
 	// 1. Declare a JFrame variable
+	int points = 0;
+	int randomnum;
 	JFrame frame;
 	HashMap<Integer, String> images = new HashMap<Integer, String>();
 	private int imageIndex;
@@ -40,13 +42,17 @@ public class SimonSays extends KeyAdapter {
 		// 'Simon says' otherwise press a different key"
 		JOptionPane.showMessageDialog(null, "RULES:Press the matching key when simon says to. If not press a different key.");
 		// 4. Call the showImage method to show an image
+		showImage();
 	}
 
 	public void keyPressed(KeyEvent e) {
 		// 15. Make a points variable to track the score.
 
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-		
+		if ((e.getKeyCode()==imageIndex)&&(randomnum == 1)) {
+			points++;
+			speak("Globglogabgalob");
+		}
 			// 17. Increase the value of score
 		
 			// 18. Use the speak method to tell the user they were correct
@@ -88,7 +94,7 @@ frame.setName("Simon Says");
 frame.addKeyListener(this);
 		// 12. Create a new instance of Random
 Random randy = new Random();
-int randomnum = randy.nextInt(2);
+randomnum = randy.nextInt(2);
 		// 13. Use the Random and the speak method to either say 
 		// "Simon says press this key" or "Press this key"
 if (randomnum == 1) {
