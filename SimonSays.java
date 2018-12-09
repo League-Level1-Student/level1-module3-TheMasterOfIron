@@ -45,7 +45,7 @@ public class SimonSays extends KeyAdapter {
 		showImage();
 	}
 
-	public void keyPressed(KeyEvent e) {
+	public void keyPressed(KeyEvent e) {x
 		// 15. Make a points variable to track the score.
 
 		// 16. If the keyCode matches the imageIndex and "Simon says"
