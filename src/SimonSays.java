@@ -40,7 +40,7 @@ public class SimonSays extends KeyAdapter {
 		images.put(new Integer(KeyEvent.VK_RIGHT), "right.jpg");
 		// 3. Use a JOptionPane to tell the user the rules: "Press the matching key when
 		// 'Simon says' otherwise press a different key"
-		JOptionPane.showMessageDialog(null, "RULES:Press the matching key when simon says to. If not press a different key.");
+		JOptionPane.showMessageDialog(null, "RULES:Press the matching key when simon says to and the Globglogabgalab will sing. If not press a different key and he will sing as well. If you don't listen to him he will have to repeat himself because you weren't listening. He hates people who dont listen.");
 		// 4. Call the showImage method to show an image
 		showImage();
 	}
@@ -120,12 +120,10 @@ public class SimonSays extends KeyAdapter {
 			speak("Ahhh");
 		}
 		else if ((e.getKeyCode() != imageIndex)&&(randomnum == 1)) {
-			points--;
 			tries++;
 			speak("Oof");
 		}
 		else if ((e.getKeyCode() == imageIndex)&&(randomnum == 0)) {
-			points--;
 			tries++;
 			speak("Oof");
 		}
@@ -134,14 +132,19 @@ public class SimonSays extends KeyAdapter {
 		if ((tries == 7)&&(points == 7)) {
 			speak("Your score is " + points + "/7 You listened to the Globglogabgalab he is happy now.");
 			JOptionPane.showMessageDialog(null, "Your score is " + points + "/7");
+			System.exit(0);
 		}
+ 		
+ 		else if ((tries == 7)&&(points == 0)) {
+ 			speak("Your score is " + points + "/7 You didn't listen to the Globglogabgalab at all he hates you now...     \n          Hey are you even awake?");
+			JOptionPane.showMessageDialog(null, "Your score is " + points + "/7");
+			System.exit(0);
+		}
+ 		
  		else if ((tries == 7)&&(points < 7)) {
  			speak("Your score is " + points + "/7 You didn't listen to everything the Globglogabgalab had to say he is mad now.");
 			JOptionPane.showMessageDialog(null, "Your score is " + points + "/7");
-		}
- 		else if ((tries == 7)&&(points == -7)) {
- 			speak("Your score is " + points + "/7 You didn't to the Globglogabgalab at all he hates you now...     \n          Hey are you even awake?");
-			JOptionPane.showMessageDialog(null, "Your score is " + points + "/7");
+			System.exit(0);
 		}
 			// 17. Increase the value of score
 		
