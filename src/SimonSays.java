@@ -143,7 +143,8 @@ public class SimonSays extends KeyAdapter {
  		
  		else if ((tries == 7)&&(points < 7)) {
  			speak("Your score is " + points + "/7 You didn't listen to everything the Globglogabgalab had to say he is mad now.");
-			JOptionPane.showMessageDialog(null, "Your score is " + points + "/7");
+			JOptionPane.showMessageDialog(null   
+					, "Your score is " + points + "/7");
 			System.exit(0);
 		}
 			// 17. Increase the value of score
