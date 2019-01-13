@@ -34,17 +34,10 @@ moo.start();
 		 */
 		for (int i = 0; i <= minutes; i--) {
 			System.out.println(minutes);
-Thread.sleep(1000);
-playSound("moo.wav");
-playSound("moo.wav");
-playSound("moo.wav");
-playSound("moo.wav");
-playSound("moo.wav");
-playSound("moo.wav");
-playSound("moo.wav");
-playSound("moo.wav");
-playSound("moo.wav");
-playSound("moo.wav");
+for (int j = 0; j >= 0; j++) {
+	playSound("moo.wav");
+}
+
 		}
 		/*
 		 * 3. When the timer is finished, use the playSound method to play a moo sound.
