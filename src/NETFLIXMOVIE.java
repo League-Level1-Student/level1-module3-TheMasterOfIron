@@ -8,14 +8,18 @@ public static void main(String[] args) {
 	Movie m5 = new Movie("Bee Movie",25);
 	Movie m6 = new Movie("Never Dying Hope",50);
 	Movie m7 = new Movie("The 90s",90);
-	Movie m8 = new Movie("P VS T",81000000); 
+	Movie m8 = new Movie("P VS T",82000000); 
 	m1.getTicketPrice();
-	m2.getTicketPrice();
-	m3.getTicketPrice();
-	m4.getTicketPrice();
-	m5.getTicketPrice();
-	m6.getTicketPrice();
-	m7.getTicketPrice();
-	m8.getTicketPrice();
+	NetflixQueue q = new NetflixQueue();
+	q.addMovie(m1);
+	q.addMovie(m2);
+	q.addMovie(m3);
+	q.addMovie(m4);
+	q.addMovie(m5);
+	q.addMovie(m6);
+	q.addMovie(m7);
+	q.addMovie(m8);
+	q.printMovies();
+	q.getBestMovie();
 }
 }
